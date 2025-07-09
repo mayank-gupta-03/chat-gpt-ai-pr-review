@@ -1,12 +1,14 @@
 name: Pull Request ChatGPT review
 
+permissions:
+  pull-requests: write
+  contents: read
+
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-permissions:
-  pull-requests: write
-  contents: read
+
 
 jobs:
   ai_pr_reviewer:
