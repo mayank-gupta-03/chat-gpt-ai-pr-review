@@ -15,6 +15,33 @@ namespace VulnerableApi.Controllers
             
         }
 
+        void ConnectionCreation(){
+Console.WriteLine("Enter username:");
+            string username = Console.ReadLine();
+ 
+            Console.WriteLine("Enter password:");
+            string password = Console.ReadLine();
+ 
+            string connString = "Server=localhost;Database=MyApp;User Id=admin;Password=admin123;";
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+ 
+            string query = "SELECT * FROM Users WHERE Username = '" + username + "' AND Password = '" + password + "'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+ 
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                Console.WriteLine("Login successful!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid credentials.");
+            }
+ 
+            conn.Close();
+}
+
         [HttpGet("get-user")]
         public IActionResult GetUser(string username)
         {
