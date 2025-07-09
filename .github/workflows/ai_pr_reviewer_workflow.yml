@@ -33,7 +33,7 @@ jobs:
           CHATGPT_MODEL: ${{ secrets.CHATGPT_MODEL }}
           GITHUB_TOKEN: ${{ secrets.API_KEY }}
           TARGET_EXTENSIONS: ${{ vars.TARGET_EXTENSIONS }}
-          REPO_OWNER: "ChatGPT Review Bot"
+          REPO_OWNER: ${{ github.repository_owner }}
           REPO_NAME: ${{ github.event.repository.name }}
           PULL_NUMBER: ${{ github.event.number }}
         run: |
