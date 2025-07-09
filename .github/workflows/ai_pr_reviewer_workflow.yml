@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   ai_pr_reviewer:
     runs-on: ubuntu-latest
@@ -16,11 +20,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install dependencies
         run: pip install -r .ai/io/mayankgupta/requirements.txt
-      
+
       - name: Run Reviewer Script
         env:
           GITHUB_HEAD_REF: ${{ github.head_ref }}
