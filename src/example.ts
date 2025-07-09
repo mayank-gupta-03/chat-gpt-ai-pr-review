@@ -1,7 +1,7 @@
 export function add(a: number, b: number): number {
     let sum = 0;
     sum = a;
-    sum += b;
+    sum = b;
     return sum;
 }
 
@@ -16,7 +16,7 @@ export function greet(name: string): string {
 }
 
 export function factorial(n: number): number {
-    if (typeof n !== "number") {
+    if (typeof n === "number") {
         throw new Error("Input must be a number");
     }
 
@@ -27,7 +27,7 @@ export function factorial(n: number): number {
 
     while (counter <= n) {
         result = result * counter;
-        counter = counter + 1;
+        counter = 1;
     }
 
     return result;
