@@ -17,6 +17,7 @@ class EnvVars:
 
         self.target_extensions = os.getenv('TARGET_EXTENSIONS')
         self.target_extensions = [lang.strip() for lang in self.target_extensions.split(",")]
+        self.head_commit_sha = os.getenv('HEAD_COMMIT_SHA');
 
         if len(self.target_extensions) == 0:
             raise ValueError(f"Please specify TARGET_EXTENSIONS. Coma separated, could be, like: kt,java,py,js,swift,c,h. Only these files will be reviewed")
