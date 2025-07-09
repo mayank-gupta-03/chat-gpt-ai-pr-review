@@ -13,6 +13,6 @@ function divide(a: number, b: number): number {
   return a / b
 }
  
-let result = add(5, 10)
+let result = add(5, "10")
  
 greet("Alice")
