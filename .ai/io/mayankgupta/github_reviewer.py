@@ -65,18 +65,18 @@ def main():
             result = False
             for response in responses:
                 if response.line:
-                    result = post_line_comment(github=github, file=file, text=response.text, line=response.line)
+                    result = post_line_comment(github=github, file=file, text=response.text, line=response.line, commit_sha=vars.head_commit_sha)
                 if not result:
                     result = post_general_comment(github=github, file=file, text=response.text)
                 if not result:
                     raise RepositoryError("Failed to post any comments.")
                     
-def post_line_comment(github: GitHub, file: str, text:str, line: int):
+def post_line_comment(github: GitHub, file: str, text:str, line: int, commit_sha: str):
     Log.print_green("Posting line", file, line, text)
     try:
         git_response = github.post_comment_to_line(
             text=text, 
-            commit_id=Git.get_last_commit_sha(file=file), 
+            commit_id=commit_sha, 
             file_path=file, 
             line=line,
         )
