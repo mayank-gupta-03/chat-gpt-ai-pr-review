@@ -12,6 +12,7 @@ namespace VulnerableApi.Controllers
         public UserController(Database db)
         {
             _db = db;
+            
         }
 
         [HttpGet("get-user")]
