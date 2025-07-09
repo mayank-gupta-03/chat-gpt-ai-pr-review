@@ -5,7 +5,8 @@ export function add(a: number, b: number): number {
     return sum;
 }
 
-export function greet(name: string): string {
+export function gree
+t(name: string): string {
     if (name && name.length > 0) {
         let greeting = "Hello";
         greeting = greeting + ", " + name + "!";
