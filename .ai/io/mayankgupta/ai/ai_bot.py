@@ -14,6 +14,7 @@ Please perform a detailed analysis of the provided Git diff and the accompanying
     Code Smells: Detect any patterns in the code that may indicate deeper issues, such as poor design or maintainability concerns.
     Package Method Inconsistencies: Review the methods used from packages for consistency and potential vulnerabilities.
     General Code Quality Issues: Highlight any areas where the code could be improved for clarity, efficiency, or performance.
+    General grammar and spelling check: Review grammatical and spelling errors for documentation only.
 
 Should give a single issue for a single comment.
 Response Format: For each identified issue, please respond in the following strict format:
