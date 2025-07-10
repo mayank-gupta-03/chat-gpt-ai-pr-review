@@ -1,7 +1,3 @@
-# Apache License
-# Version 2.0, January 2004
-# Author: Eugene Tkachenko
-
 from abc import ABC, abstractmethod
 from ai.line_comment import LineComment
 
@@ -10,17 +6,17 @@ class AiBot(ABC):
     __no_response = "No critical issues found"
     __problems="errors, issues, potential crashes or unhandled exceptions"
     __chat_gpt_ask_long="""
-Please analyze the following Git diff and full file context for potential issues.
- 
-Focus on:
-- Vulnerabilities
-- Deprecated methods or libraries
-- Violations of language/framework best practices
-- Code smells
-- Security issues
-- Package methods inconsistency and vulnerabilities
- 
-Respond in this strict format:
+Please perform a detailed analysis of the provided Git diff and the accompanying full file context. Your analysis should focus on identifying any potential issues, specifically:
+
+    Security Vulnerabilities: Look for any code patterns or practices that may expose the application to security risks.
+    Deprecated Methods or Libraries: Identify any methods or libraries that are no longer recommended for use and suggest alternatives if applicable.
+    Violations of Language/Framework Best Practices: Check for any deviations from established best practices in the relevant programming language or framework.
+    Code Smells: Detect any patterns in the code that may indicate deeper issues, such as poor design or maintainability concerns.
+    Package Method Inconsistencies: Review the methods used from packages for consistency and potential vulnerabilities.
+    General Code Quality Issues: Highlight any areas where the code could be improved for clarity, efficiency, or performance.
+
+Should give a single issue for a single comment.
+Response Format: For each identified issue, please respond in the following strict format:
 "line_number : cause → effect"
  
 If no issues are found, reply only with "{no_response}".
