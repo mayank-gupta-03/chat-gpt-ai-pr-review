@@ -13,11 +13,12 @@ class AiBot(ABC):
 Please analyze the following Git diff and full file context for potential issues.
  
 Focus on:
-- Vulnerabilities (e.g., SQL injection, plaintext passwords, improper input validation)
+- Vulnerabilities
 - Deprecated methods or libraries
 - Violations of language/framework best practices
-- Code smells (e.g., large functions, magic numbers, poor naming)
-- Security issues (e.g., missing password hashing, insecure API usage)
+- Code smells
+- Security issues
+- Package methods inconsistency and vulnerabilities
  
 Respond in this strict format:
 "line_number : cause → effect"
