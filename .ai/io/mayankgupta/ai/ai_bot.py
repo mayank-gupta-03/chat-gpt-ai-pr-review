@@ -10,16 +10,24 @@ class AiBot(ABC):
     __no_response = "No critical issues found"
     __problems="errors, issues, potential crashes or unhandled exceptions"
     __chat_gpt_ask_long="""
-Could you describe briefly {problems} for the next code with given git diffs? 
-Please, also, do not add intro words, just print errors in the format: "line_number : cause effect"
-If there are no {problems} just say "{no_response}".
-
-DIFFS:
-
+Please analyze the following Git diff and full file context for potential issues.
+ 
+Focus on:
+- Vulnerabilities (e.g., SQL injection, plaintext passwords, improper input validation)
+- Deprecated methods or libraries
+- Violations of language/framework best practices
+- Code smells (e.g., large functions, magic numbers, poor naming)
+- Security issues (e.g., missing password hashing, insecure API usage)
+ 
+Respond in this strict format:
+"line_number : cause → effect"
+ 
+If no issues are found, reply only with "{no_response}".
+ 
+DIFF:
 {diffs}
-
-Full code from the file:
-
+ 
+FULL CODE:
 {code}
 """
 
